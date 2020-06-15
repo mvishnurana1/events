@@ -1,22 +1,123 @@
 {
+    "root": true,
     "env": {
-        "browser": true,
-        "es2020": true
+        "browser": true
     },
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb"
-    ],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 11,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react"
-    ],
+    "extends": "airbnb",
     "rules": {
+        "indent": [
+            2,
+            4,
+            {
+                "SwitchCase": 1,
+                "VariableDeclarator": 1,
+                "outerIIFEBody": 1
+            }
+        ],
+        "react/jsx-indent": [
+            0
+        ],
+        "react/jsx-indent-props": [
+            0
+        ],
+        "max-len": [
+            1,
+            120
+        ],
+        "comma-dangle": 0,
+        "no-param-reassign": 1,
+        "no-console": [
+            1,
+            {
+                "allow": [
+                    "warn",
+                    "error"
+                ]
+            }
+        ],
+        "react/no-deprecated": 1,
+        "jsx-a11y/anchor-is-valid": [
+            "error",
+            {
+                "components": [
+                    "Link"
+                ],
+                "specialLink": [
+                    "to"
+                ],
+                "aspects": [
+                    "noHref",
+                    "invalidHref",
+                    "preferButton"
+                ]
+            }
+        ],
+        "linebreak-style": 0,
+        "no-plusplus": [
+            "error",
+            {
+                "allowForLoopAfterthoughts": true
+            }
+        ],
+        "radix": [
+            "error",
+            "as-needed"
+        ],
+        "react/sort-comp": [
+            "error",
+            {
+                "order": [
+                    "static-methods",
+                    "instance-variables",
+                    "lifecycle",
+                    "/^on.+$/",
+                    "getters",
+                    "setters",
+                    "/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/",
+                    "instance-methods",
+                    "everything-else",
+                    "rendering"
+                ],
+                "groups": {
+                    "lifecycle": [
+                        "displayName",
+                        "propTypes",
+                        "contextTypes",
+                        "childContextTypes",
+                        "mixins",
+                        "statics",
+                        "defaultProps",
+                        "constructor",
+                        "getDefaultProps",
+                        "getInitialState",
+                        "state",
+                        "getChildContext",
+                        "getDerivedStateFromProps",
+                        "componentWillMount",
+                        "UNSAFE_componentWillMount",
+                        "componentDidMount",
+                        "componentWillReceiveProps",
+                        "UNSAFE_componentWillReceiveProps",
+                        "shouldComponentUpdate",
+                        "componentWillUpdate",
+                        "UNSAFE_componentWillUpdate",
+                        "getSnapshotBeforeUpdate",
+                        "componentDidUpdate",
+                        "componentDidCatch",
+                        "componentWillUnmount"
+                    ],
+                    "rendering": [
+                        "/^render.+$/",
+                        "render"
+                    ]
+                }
+            }
+        ]
+    },
+    "settings": {
+        "react": {
+            "version": "16.4", // airbnb sets this to 16 so overriden to latest stable
+            "flowVersion": "0.73.0" // Flow version
+        }
     }
 }
