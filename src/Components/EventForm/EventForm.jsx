@@ -29,9 +29,7 @@ class EventForm extends Component {
 
     submitHandler(e) {
         e.preventDefault();
-
         const { addEvent } = this.props;
-
         addEvent(this.state);
 
         this.setState({
