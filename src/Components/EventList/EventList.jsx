@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
+import { Card, ListGroup } from 'react-bootstrap';
 import EventForm from '../EventForm/EventForm';
 
-const styleObject = {
-    color: 'white',
-    backgroundColor: 'black'
+const PageBreakDown = {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    alignItems: 'stretch',
+    alignContent: 'stretch'
+};
+
+const EventCardStyle = {
+    width: '18rem',
+    marginBottom: '20px',
+    textAlign: 'center'
 };
 
 class EventList extends Component {
@@ -23,41 +34,41 @@ class EventList extends Component {
 
     renderItems() {
         const { events } = this.state;
-        return (
-            <ul style={styleObject}>
-                {
-                    events.map((event) => (
-                        <li>
-                            Event Title :
-                            {event.eventTitle}
-                            <br />
-                            Post Code :
-                            {event.postCode}
-                            <br />
-                            Occasion :
-                            {event.occasion}
-                            <br />
-                            Food Type :
-                            {event.foodType}
-                            <br />
-                            Service Type :
-                            {event.service}
-                            <br />
-                            Contact Email :
-                            {event.ContactEmail}
-                        </li>
-                    ))
-                }
-            </ul>
-        );
+
+        return events.map((event) => (
+            <Card key={event.eventTitle} className="text-primary" style={EventCardStyle}>
+                <Card.Title>{event.eventTitle}</Card.Title>
+                <ListGroup variant="flush">
+                    <ListGroup.Item>{event.service}</ListGroup.Item>
+                    <ListGroup.Item>{event.foodType}</ListGroup.Item>
+                    <ListGroup.Item>{event.ContactEmail}</ListGroup.Item>
+                    <ListGroup.Item>{event.postCode}</ListGroup.Item>
+                </ListGroup>
+            </Card>
+        ));
     }
 
     render() {
+        const { events } = this.state;
+
+        if (events.length === 0) {
+            return (
+                <div>
+                    <EventForm addEvent={this.addEvent} />
+                </div>
+            );
+        }
+
         return (
-            <div>
-                <h1>Events List</h1>
-                {this.renderItems()}
-                <EventForm addEvent={this.addEvent} />
+
+            <div style={PageBreakDown}>
+                <div className="bg-dark mt-3 p-5 text-primary">
+                    <h1>Events List</h1>
+                    {this.renderItems()}
+                </div>
+                <div>
+                    <EventForm addEvent={this.addEvent} />
+                </div>
             </div>
         );
     }
