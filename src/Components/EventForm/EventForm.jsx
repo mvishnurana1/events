@@ -173,7 +173,7 @@ class EventForm extends Component {
 }
 
 EventForm.propTypes = {
-    addEvent: PropTypes.isRequired
+    addEvent: PropTypes.func.isRequired
 };
 
 export default EventForm;

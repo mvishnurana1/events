@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, ListGroup } from 'react-bootstrap';
+import { uuid } from 'uuidv4';
 import EventForm from '../EventForm/EventForm';
 
 const PageBreakDown = {
@@ -36,7 +37,7 @@ class EventList extends Component {
         const { events } = this.state;
 
         return events.map((event) => (
-            <Card key={event.eventTitle} className="text-primary" style={EventCardStyle}>
+            <Card key={uuid()} className="text-primary" style={EventCardStyle}>
                 <Card.Title>{event.eventTitle}</Card.Title>
                 <ListGroup variant="flush">
                     <ListGroup.Item>{event.service}</ListGroup.Item>
