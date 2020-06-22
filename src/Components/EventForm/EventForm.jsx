@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
     Col, Container, Form, Button
 } from 'react-bootstrap';
@@ -29,7 +30,9 @@ class EventForm extends Component {
     submitHandler(e) {
         e.preventDefault();
 
-        this.props.addEvent(this.state);
+        const { addEvent } = this.props;
+
+        addEvent(this.state);
 
         this.setState({
             eventTitle: '',
@@ -170,5 +173,9 @@ class EventForm extends Component {
         );
     }
 }
+
+EventForm.propTypes = {
+    addEvent: PropTypes.isRequired
+};
 
 export default EventForm;
