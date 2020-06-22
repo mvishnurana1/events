@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import EventForm from './Components/EventForm/EventForm';
+import EventList from './Components/EventList/EventList';
 
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-        };
+        this.state = {};
     }
 
     render() {
         return (
-            <EventForm />
+            <div>
+                <EventList />
+            </div>
         );
     }
 }

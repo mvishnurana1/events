@@ -16,28 +16,29 @@ class EventForm extends Component {
             service: '',
             foodType: ''
         };
-        this.handleChange = this.handleChange.bind(this);
+        this.changeHandler = this.changeHandler.bind(this);
         this.submitHandler = this.submitHandler.bind(this);
     }
 
-    handleChange(e) {
+    changeHandler(e) {
         this.setState({
             [e.target.name]: e.target.value
         });
     }
 
     submitHandler(e) {
-        const {
-            eventTitle, postCode, service, Message, foodType, ContactEmail
-        } = this.state;
-        console.warn('Form Submitted');
-        console.warn(eventTitle);
-        console.warn(postCode);
-        console.warn(service);
-        console.warn(Message);
-        console.warn(foodType);
-        console.warn(ContactEmail);
         e.preventDefault();
+
+        this.props.addEvent(this.state);
+
+        this.setState({
+            eventTitle: '',
+            postCode: '',
+            service: '',
+            Message: '',
+            foodType: '',
+            ContactEmail: ''
+        });
     }
 
     render() {
@@ -57,7 +58,7 @@ class EventForm extends Component {
                                 placeholder="Enter Title"
                                 name="eventTitle"
                                 value={eventTitle}
-                                onChange={this.handleChange}
+                                onChange={this.changeHandler}
                             />
                             <Form.Text />
                         </Form.Group>
@@ -69,7 +70,7 @@ class EventForm extends Component {
                                 name="occasion"
                                 placeholder="Enter Ocasion"
                                 value={occasion}
-                                onChange={this.handleChange}
+                                onChange={this.changeHandler}
                             />
                             <Form.Text />
                         </Form.Group>
@@ -83,7 +84,7 @@ class EventForm extends Component {
                                 name="suburb"
                                 placeholder="Enter Suburb"
                                 value={suburb}
-                                onChange={this.handleChange}
+                                onChange={this.changeHandler}
                             />
                             <Form.Text />
                         </Form.Group>
@@ -94,7 +95,7 @@ class EventForm extends Component {
                                 type="number"
                                 name="postCode"
                                 placeholder="Enter PostCode"
-                                onChange={this.handleChange}
+                                onChange={this.changeHandler}
                             />
                             <Form.Text />
                         </Form.Group>
@@ -107,7 +108,7 @@ class EventForm extends Component {
                                 as="select"
                                 defaultValue="Pick One"
                                 name="service"
-                                onChange={this.handleChange}
+                                onChange={this.changeHandler}
                             >
                                 <option>Pick One</option>
                                 <option>Waiters</option>
@@ -123,7 +124,7 @@ class EventForm extends Component {
                                 as="select"
                                 defaultValue="Pick One"
                                 name="foodType"
-                                onChange={this.handleChange}
+                                onChange={this.changeHandler}
                             >
                                 <option>Pick One</option>
                                 <option>Australian Food</option>
@@ -142,7 +143,7 @@ class EventForm extends Component {
                                 placeholder="Message for Organiser"
                                 rows="4"
                                 name="Message"
-                                onChange={this.handleChange}
+                                onChange={this.changeHandler}
                             />
                         </Form.Group>
 
@@ -152,7 +153,7 @@ class EventForm extends Component {
                                 type="email"
                                 name="ContactEmail"
                                 placeholder="contact email"
-                                onChange={this.handleChange}
+                                onChange={this.changeHandler}
                             />
                         </Form.Group>
                     </Form.Row>
