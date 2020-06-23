@@ -15,6 +15,9 @@ const PageBreakDown = {
 const EventCardStyle = {
     width: '18rem',
     marginBottom: '20px',
+};
+
+const ListElements = {
     textAlign: 'center'
 };
 
@@ -38,12 +41,37 @@ class EventList extends Component {
 
         return events.map((event) => (
             <Card key={uuid()} className="text-primary" style={EventCardStyle}>
-                <Card.Title>{event.eventTitle}</Card.Title>
                 <ListGroup variant="flush">
-                    <ListGroup.Item>{event.service}</ListGroup.Item>
-                    <ListGroup.Item>{event.foodType}</ListGroup.Item>
-                    <ListGroup.Item>{event.ContactEmail}</ListGroup.Item>
-                    <ListGroup.Item>{event.postCode}</ListGroup.Item>
+                    <ListGroup.Item style={ListElements}>
+                        <strong>Date</strong>
+                        {' : '}
+                        {event.eventDate}
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                        <strong> Occasion </strong>
+                        {' : '}
+                        {event.occasion}
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                        <strong> Service </strong>
+                        {' : '}
+                        {event.service}
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                        <strong> Food Type  </strong>
+                        {' : '}
+                        {event.foodType}
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                        <strong> Email </strong>
+                        {' : '}
+                        {event.ContactEmail}
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                        <strong> Post Code </strong>
+                        {' : '}
+                        {event.postCode}
+                    </ListGroup.Item>
                 </ListGroup>
             </Card>
         ));

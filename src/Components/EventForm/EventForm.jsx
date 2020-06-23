@@ -8,7 +8,7 @@ class EventForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            eventTitle: '',
+            eventDate: '',
             occasion: '',
             suburb: '',
             postCode: '',
@@ -44,7 +44,7 @@ class EventForm extends Component {
 
     render() {
         const {
-            eventTitle, suburb, occasion
+            eventDate, suburb, occasion
         } = this.state;
 
         return (
@@ -53,12 +53,12 @@ class EventForm extends Component {
                     <h1>Events Form</h1>
                     <Form.Row>
                         <Form.Group as={Col}>
-                            <Form.Label htmlFor="eventTitle">Event Title</Form.Label>
+                            <Form.Label htmlFor="eventTitle">Date</Form.Label>
                             <Form.Control
-                                type="text"
-                                placeholder="Enter Title"
-                                name="eventTitle"
-                                value={eventTitle}
+                                type="date"
+                                placeholder="Enter date"
+                                name="eventDate"
+                                value={eventDate}
                                 onChange={this.changeHandler}
                             />
                             <Form.Text />
