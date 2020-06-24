@@ -60,6 +60,7 @@ class EventForm extends Component {
                                 name="eventDate"
                                 value={eventDate}
                                 onChange={this.changeHandler}
+                                required
                             />
                             <Form.Text />
                         </Form.Group>
@@ -69,9 +70,10 @@ class EventForm extends Component {
                             <Form.Control
                                 type="text"
                                 name="occasion"
-                                placeholder="Enter Ocasion"
+                                placeholder="Enter Occasion"
                                 value={occasion}
                                 onChange={this.changeHandler}
+                                required
                             />
                             <Form.Text />
                         </Form.Group>
@@ -86,6 +88,7 @@ class EventForm extends Component {
                                 placeholder="Enter Suburb"
                                 value={suburb}
                                 onChange={this.changeHandler}
+                                required
                             />
                             <Form.Text />
                         </Form.Group>
@@ -97,6 +100,7 @@ class EventForm extends Component {
                                 name="postCode"
                                 placeholder="Enter PostCode"
                                 onChange={this.changeHandler}
+                                required
                             />
                             <Form.Text />
                         </Form.Group>
@@ -126,6 +130,7 @@ class EventForm extends Component {
                                 defaultValue="Pick One"
                                 name="foodType"
                                 onChange={this.changeHandler}
+                                required
                             >
                                 <option>Pick One</option>
                                 <option>Australian Food</option>

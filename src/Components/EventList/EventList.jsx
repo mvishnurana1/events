@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Card, ListGroup } from 'react-bootstrap';
+import {
+    Card, ListGroup
+} from 'react-bootstrap';
 import { uuid } from 'uuidv4';
 import EventForm from '../EventForm/EventForm';
 
@@ -43,7 +45,7 @@ class EventList extends Component {
             <Card key={uuid()} className="text-primary" style={EventCardStyle}>
                 <ListGroup variant="flush">
                     <ListGroup.Item style={ListElements}>
-                        <strong>Date</strong>
+                        <strong> Date </strong>
                         {' : '}
                         {event.eventDate}
                     </ListGroup.Item>
